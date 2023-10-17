@@ -1,0 +1,15 @@
+{
+    "name": "api/atendimento",
+    "autoload": {
+        "psr-4": {
+            "Api\\Atendimento\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fnascimentosilva",
+            "email": "fabricionsilva26@gmail.com"
+        }
+    ],
+    "require": {}
+}
