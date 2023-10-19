@@ -1,4 +1,6 @@
 <?php
+//importacao do arquivo
+require_once 'config.php';
 
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -26,7 +28,7 @@ if ($method === 'POST') {
 
 
 
-    $filaAtendimento = json_decode(file_get_contents('filaAtendimento.txt'));
+    $filaAtendimento = json_decode(file_get_contents(ARQUIVO_FILA_ATENDIMENTO));
 
     if ($type === 1) {
         array_push($filaAtendimento, ['nome' => $nome, 'cpf' => $cpf]);
@@ -34,7 +36,7 @@ if ($method === 'POST') {
         //coloca os dados inicio do array
         array_unshift($filaAtendimento, ['nome' => $nome, 'cpf' => $cpf]);
     }
-    file_put_contents('filaAtendimento.txt', json_encode($filaAtendimento));
+    file_put_contents(ARQUIVO_FILA_ATENDIMENTO, json_encode($filaAtendimento));
 
     http_response_code(201);
     echo json_encode([

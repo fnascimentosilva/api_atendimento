@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config.php';
+
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
 
@@ -23,13 +25,13 @@ if ($method === 'POST') {
 
 
 
-    $fila = json_decode(file_get_contents('filaAtendimento.txt'));
+    $fila = json_decode(file_get_contents(ARQUIVO_FILA_ATENDIMENTO));
 
     //pega o primeiro item do array
      //excluir a pessoa do array de fila
     $primeiroCliente = array_shift($fila);
 
-    file_put_contents('filaAtendimento.txt', json_encode($fila));
+    file_put_contents(ARQUIVO_FILA_ATENDIMENTO, json_encode($fila));
 
     //identificar qual o guiche de atendimento
     //fazer um push do item retirado do array de fila
