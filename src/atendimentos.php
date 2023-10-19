@@ -37,27 +37,18 @@ if ($method === 'POST') {
     if($guiche === 1){
         $listaGuiche1 = json_decode(file_get_contents('guiche1.txt'));
         array_push($listaGuiche1, $primeiroCliente);
-        file_put_contents('guiche1.txt', json_encode($primeiroCliente));
+        file_put_contents('guiche1.txt', json_encode($listaGuiche1));
     }else if($guiche === 2){
         $listaGuiche2 = json_decode(file_get_contents('guiche2.txt'));
         array_push($listaGuiche2, $primeiroCliente);
-        file_put_contents('guiche2.txt', json_encode($primeiroCliente));
+        file_put_contents('guiche2.txt', json_encode($listaGuiche2));
     }else if($guiche === 3){
         $listaGuiche3 = json_decode(file_get_contents('guiche3.txt'));
         array_push($listaGuiche3, $primeiroCliente);
-        file_put_contents('guiche3.txt', json_encode($primeiroCliente));
+        file_put_contents('guiche3.txt', json_encode($listaGuiche3));
     }
 
-    if($type === 1){
-    array_push($filaAtendimento, ['nome' => $nome, 'cpf' => $cpf]);
-}else{
-    //coloca os dados inicio do array
-    array_unshift($filaAtendimento, ['nome' => $nome, 'cpf' => $cpf]);
+    
 }
-    file_put_contents('filaAtendimento.txt', json_encode($filaAtendimento));
 
-    http_response_code(201);
-    echo json_encode([
-        'message' => 'Aguarde sua vez!'
-    ]);
-}
+?>
