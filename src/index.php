@@ -1,6 +1,7 @@
 <?php
 //importacao do arquivo
 require_once 'config.php';
+require_once 'utils.php';
 
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -14,7 +15,7 @@ if ($method === 'POST') {
 
 
     //capturando o body da requisicao
-    $body = json_decode(file_get_contents("php://input"));
+    $body = getBody();
 
 
 
@@ -28,7 +29,7 @@ if ($method === 'POST') {
 
 
 
-    $filaAtendimento = json_decode(file_get_contents(ARQUIVO_FILA_ATENDIMENTO));
+    $filaAtendimento = readFileContent(ARQUIVO_FILA_ATENDIMENTO);
 
     if ($type === 1) {
         array_push($filaAtendimento, ['nome' => $nome, 'cpf' => $cpf]);

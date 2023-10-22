@@ -1,6 +1,7 @@
 <?php
 
 require_once 'config.php';
+require_once 'utils.php';
 
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -14,7 +15,7 @@ if ($method === 'POST') {
 
 
     //capturando o body da requisicao
-    $body = json_decode(file_get_contents("php://input"));
+    $body = getBody();
 
 
     $guiche = filter_var($body -> guiche, FILTER_VALIDATE_INT);
@@ -37,15 +38,15 @@ if ($method === 'POST') {
     //fazer um push do item retirado do array de fila
 
     if($guiche === 1){
-        $listaGuiche1 = json_decode(file_get_contents('guiche1.txt'));
+        $listaGuiche1 = readFileContent('guiche1.txt');
         array_push($listaGuiche1, $primeiroCliente);
         file_put_contents('guiche1.txt', json_encode($listaGuiche1));
     }else if($guiche === 2){
-        $listaGuiche2 = json_decode(file_get_contents('guiche2.txt'));
+        $listaGuiche2 = readFileContent('guiche2.txt');
         array_push($listaGuiche2, $primeiroCliente);
         file_put_contents('guiche2.txt', json_encode($listaGuiche2));
     }else if($guiche === 3){
-        $listaGuiche3 = json_decode(file_get_contents('guiche3.txt'));
+        $listaGuiche3 = readFileContent('guiche3.txt');
         array_push($listaGuiche3, $primeiroCliente);
         file_put_contents('guiche3.txt', json_encode($listaGuiche3));
     }
