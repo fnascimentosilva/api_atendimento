@@ -1,1 +1,1 @@
-[{"nome":"fabricio","cpf":"9999999999"},{"nome":"simony","cpf":"9999999999"},{"nome":"sabrina","cpf":"9999999999"},{"nome":"rosicleia","cpf":"9999999999"}]
+[{"nome":"fabricio","cpf":"9999999999"},{"nome":"simony","cpf":"9999999999"},{"nome":"sabrina","cpf":"9999999999"},{"nome":"rosicleia","cpf":"9999999999"},{"nome":"rosicleia","cpf":"9999999999"}]
