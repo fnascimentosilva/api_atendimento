@@ -52,7 +52,10 @@ if ($method === 'POST') {
         array_push($listaGuiche3, $primeiroCliente);
         saveFileContent('guiche3.txt', $listaGuiche3);
     }
-
+    http_response_code(201);
+    echo json_encode([
+        'message' => 'Atendimento gerado com sucesso!'
+    ]);
     
 }
 
