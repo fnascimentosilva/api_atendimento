@@ -2,6 +2,7 @@
 //importacao do arquivo
 require_once 'config.php';
 require_once 'utils.php';
+require_once 'email.php';
 
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -43,4 +44,6 @@ if ($method === 'POST') {
     echo json_encode([
         'message' => 'Aguarde sua vez!'
     ]);
+
+    sendEmail();
 }
