@@ -18,7 +18,35 @@ function sendEmail(){
     $phpmailer->setFrom('banco@gmail.com', 'Banco Meu Dinheiro');
     $phpmailer->addAddress('fabricionsilva26@gmail.com', 'Fabricio Nascimento');
     $phpmailer->Subject = 'FEEDBACK SOBRE ATENDIMENTO';
-    $phpmailer->Body = 'teste conteudo email .............' ;
+    $phpmailer->Body = '<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            }
+            h1 {
+                color: red;
+            }
+            p {
+                color: #666;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Olá,</h1>
+            <p>Este é um exemplo de e-mail com estilo.</p>
+        </div>
+    </body>
+</html>' ;
 
 
     //tentar enviar o email
